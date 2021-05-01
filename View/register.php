@@ -32,6 +32,10 @@
                             <p>Town/City<span>*</span></p>
                             <input type="text" name="user[city]">
                         </div>
+                        <div class="checkout__input">
+                            <p>Description<span>*</span></p>
+                            <input type="text" name="user[description]">
+                        </div>
                         <input id="imageUpload" type="file" name="profilePicture" placeholder="Photo" capture>
                         <div class="row">
                             <div class="col-lg-6">

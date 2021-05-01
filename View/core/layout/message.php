@@ -2,12 +2,12 @@
 
 <?php 
     $message = $this->getMessage();
-    if($success = $message->getSuccess()){ 
-        echo $success;
+    if($success = $message->getSuccess()){  
+        echo '<script type="text/javascript">alert("'.$success.'");</script>';
         $message->clearSuccess();
     }
     if($failure = $message->getFailure()){
-        echo $failure;
+        echo '<script type="text/javascript">alert("'.$failure.'");</script>';
         $message->clearFailure();
     }
 ?>

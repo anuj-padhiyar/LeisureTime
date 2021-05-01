@@ -39,7 +39,7 @@
 				</div>
 
 				<div class="text-center p-t-136">
-					<a class="txt2" href="javascript:void(0)" onclick="leisure.setUrl('<?php echo $this->getUrl()->getUrl('registerForm'); ?>').load();">
+					<a class="txt2" href="javascript:void(0)" onclick="leisure.setUrl('<?php echo $this->getUrl()->getUrl('registerForm','Login'); ?>').load();">
 						Create your Account
 						<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 					</a>

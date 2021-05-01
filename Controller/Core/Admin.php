@@ -36,7 +36,7 @@ class Admin{
         echo $this->getLayout()->toHtml();
     }
 
-    public function setMessage(\Block\Core\Message $message = null){
+    public function setMessage(\Model\Core\Message $message = null){
         if(!$message){
             $message = \Leisure::getModel('Core\Message');
         }
@@ -76,32 +76,21 @@ class Admin{
         return "http://localhost/phpCode/LeisureTime/?{$queryString}";
     }
 
-    public function makeResponse($block,$optional = null){
-		if($optional){
-            $response = [
-                'status' => 'success',
-                'message' =>'this is grid action.',
-                'element' =>[
-                    [
-                        'selector' =>'#contentHtml',
-                        'html' =>$block
-                    ],
-                    [
-                        'selector' =>'#messageHtml',
-                        'html' =>$optional
-                    ]
-                ]
-            ];
-        }else{
-            $response = [
-                'status' => 'success',
-                'message' =>'this is grid action.',
-                'element' =>[
+    public function makeResponse($block,$message = null){
+        $response = [
+            'status' => 'success',
+            'message' =>'this is grid action.',
+            'element' =>[
+                [
                     'selector' =>'#contentHtml',
                     'html' =>$block
+                ],
+                [
+                    'selector' =>'#messageHtml',
+                    'html' =>$message
                 ]
-            ];
-        }
+            ]
+        ];
 		header("Content-Type: application/json");
 		echo json_encode($response);
 	}

@@ -5,7 +5,7 @@ class Adapter{
     private $config = [
         'host'=>'localhost',
         'username'=>'ubuntu',
-        'password'=>'',
+        'password'=>'ubuntu',
         'database'=>'leisure_time'
     ];
     private $connect = null;

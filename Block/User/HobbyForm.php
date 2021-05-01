@@ -1,11 +1,10 @@
 <?php
 namespace Block\User;
-class Home extends \Block\Core\Template{
+class HobbyForm extends \Block\Core\Template{
     protected $hobbies = null;
-    protected $user = null;
 
     public function __construct(){
-        $this->setTemplate('View/user/home.php');
+        $this->setTemplate('View/user/hobbyForm.php');
     }
     
     public function setHobbies($hobbies = null){
@@ -21,6 +20,5 @@ class Home extends \Block\Core\Template{
         }
         return $this->hobbies;
     }
-
 }
 ?>

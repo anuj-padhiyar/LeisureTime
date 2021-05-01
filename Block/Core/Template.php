@@ -7,9 +7,37 @@ class Template{
     protected $message = null;
     protected $request = null;
     protected $url = null;
+    protected $userRequest=null;
+    protected $user = null;
 
     public function createBlock($className){
         return \Leisure::getBlock($className);
+    }
+
+    public function setUser($user = null){
+        if(!$user){
+            $userId = \Leisure::getModel('Core\Session')->userId;
+            $user = \Leisure::getModel('User')->load($userId);
+        }
+        $this->user = $user;
+        return $this;
+    }
+    public function getUser(){
+        if(!$this->user){
+            $this->setUser();
+        }
+        return $this->user;
+    }
+
+    public function setUserRequest(){
+        $this->userRequest = \Leisure::getModel('userRequest');
+        return $this;
+    }
+    public function getUserRequest(){
+        if(!$this->userRequest){
+            $this->setUserRequest();
+        }
+        return $this->userRequest;
     }
     
     public function setTemplate($template){

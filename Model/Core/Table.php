@@ -141,10 +141,8 @@ class Table{
         return $this->getAdapter()->insert($query);
     }
  
-    public function delete($deletequery = null){
-        if(!$deletequery){
-            $deletequery = "DELETE FROM `{$this->getTableName()}` WHERE `{$this->getPrimaryKey()}` = {$this->data[$this->getPrimaryKey()]}";
-        }
+    public function delete(){
+        $deletequery = "DELETE FROM `{$this->getTableName()}` WHERE `{$this->getPrimaryKey()}` = {$this->originalData[$this->getPrimaryKey()]}";
         $this->getAdapter()->delete($deletequery);
         return true;
     }

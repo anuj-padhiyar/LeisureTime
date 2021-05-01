@@ -31,21 +31,17 @@ class Login extends \Controller\Core\Admin{
                 $session = \Leisure::getModel('Core\Session');
                 $session->userId = $data->userId;
                 $this->getMessage()->setSuccess('Logged In');
-                $home = \Leisure::getBlock('User\Home')->toHtml();
-                $message = \Leisure::getBlock('Core\Layout\Message')->toHtml();
-                $this->makeResponse($home,$message);
+                $login = \Leisure::getBlock('User\Home')->toHtml();
             }else{
                 $this->getMessage()->setFailure('Wrong Data');
                 $login = \Leisure::getBlock('Login')->toHtml();
-                $message = \Leisure::getBlock('Core\Layout\Message')->toHtml();
-                $this->makeResponse($login,$message);
             }
         }else{
             $this->getMessage()->setFailure('Enter Valid Username/Password');
             $login = \Leisure::getBlock('Login')->toHtml();
-            $message = \Leisure::getBlock('Core\Layout\Message')->toHtml();
-            $this->makeResponse($login,$message);
         }
+        $message = \Leisure::getBlock('Core\Layout\Message')->toHtml();
+        $this->makeResponse($login,$message);
     }
 
     public function registerFormAction(){
